@@ -4,129 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>happy valentine adekkk</title>
-
-<!-- font biar ga error -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Card */
-.card {
-    background: white;
-    padding: 40px;
-    border-radius: 25px;
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    max-width: 400px;
-    position: relative;
-    z-index: 2;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-.card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-h1 { color: #ff4d6d; }
-
-p {
-    color: #555;
-    font-size: 16px;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 30px;
-    background: #ff4d6d;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover { background: #e60039; }
-
-/* Animasi hati */
-.heart {
-    position: absolute;
-    color: white;
-    font-size: 20px;
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    0% { transform: translateY(-10vh); opacity: 1; }
-    100% { transform: translateY(110vh); opacity: 0; }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
+body{margin:0;padding:0;overflow:hidden;font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#ff758c,#ff7eb3);display:flex;justify-content:center;align-items:center;height:100vh}
+.card{background:white;padding:40px;border-radius:25px;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,.3);max-width:420px;position:relative;z-index:5;animation:fadeIn 1.5s}
+.card img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin:6px}
+h1{color:#ff4d6d}
+p{color:#555;font-size:16px}
+button{margin-top:15px;padding:10px 25px;border:none;border-radius:30px;background:#ff4d6d;color:white;font-size:16px;cursor:pointer;transition:.3s}
+button:hover{background:#e60039}
+.heart{position:fixed;color:#fff;pointer-events:none}
+@keyframes fall{from{transform:translateY(-20vh)}to{transform:translateY(85vh)}}
+@keyframes sideLeft{from{transform:translateX(-20vw) translateY(20vh)}to{transform:translateX(45vw) translateY(85vh)}}
+@keyframes sideRight{from{transform:translateX(120vw) translateY(20vh)}to{transform:translateX(55vw) translateY(85vh)}}
+@keyframes fadeIn{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+.letter{display:none;margin-top:15px;animation:fadeIn 1s}
 </style>
 </head>
-
 <body>
 
+<audio id="lagu" autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <div class="card">
-
-    <!-- kalau belum upload foto, sementara pakai placeholder -->
-    <img src="download.jpg" alt="Foto">
-    <img src="download (1).jpg" alt="Foto">
-    <img src="download (2).jpg" alt="Foto">
-
-
-    <h1 id="judul">happy valentine babyy ma babyyy YEMARSHHH 💗</h1>
-
-    <p id="pesan">
-        HAIII BABYY MA BABYYYYYYY!!! adek gimanaa kabarnyaa? perasaannya? adekk sehat dan baik kan?
-        ADEK JAGA KESEHATAN TERUS YA WAJIB PLS KARNA SEMUA ITU HAK MILIK ABIT HUHUHU
-        adek uda makan yang cukup, istirahat yang cukup, DAN BAHAGIAA belum? kalo belum yuk makan, istirahat  DAN BAHAGIAA dulu sebelum buka iniii
-        NANTI PENCET AKU LAGI YAA KALAU SUDAHH HUHUUH ILOVEYOU BABY
-        
-    </p>
-
-    <button onclick="gantiPesan()"> pencet aku adekk 💌</button>
+<img src="download.jpg"><img src="download (1).jpg"><img src="download (2).jpg">
+<h1>happy valentine babyy ma babyyy 💗</h1>
+<p id="awal">pencet tombolnya dulu yaa 😚</p>
+<button onclick="bukaSurat()">buka surat 💌</button>
+<div class="letter" id="surat">
+<p>HAIII BABYYY!! makasih yaa udah bertahan sejauh ini bareng aku. semoga semua yang kita rencanain bisa kita wujudin pelan pelan. aku bangga banget sama kamu 💗</p>
+<button onclick="lanjutPesan()">lanjut baca</button>
+</div>
+<p id="pesan"></p>
 </div>
 
 <script>
-function gantiPesan() {
-    document.getElementById("pesan").innerHTML = "HALOO LAGI ADEKK! ADEK JAGA KESEHATAN, MAKAN YANG CUKUP, ISTIRAHAT YANG CUKUP YA WAJIB DAN BAHAGIAA
-        huhuhu klo dipikir pikir ini pertama kalinya kita valentine bareng yang real "bareng" yahhhhh,
-        smogaa taun berikut berikutnyaa tiap valentine kitaa bisa rayainnn bersamaa ya adek sayangg.
-        iloveyouuuuu adekkk‼️ abit sangatt amat beryukur kita sudah melalui banyak hal dan sudah di tahap iniiii!
-        kuatt teruss yaa pacar kerenku yang gaada tandingannyaaaa di dunia inii!!! 
-        DAN YANG TERPENTING SEMANGATTTTT TERUS SAYANG HIHIHI GASABAR DITITIK FINISH YANG UDAH KITA RENCANAIN BERDUA😚✨ ";
-}
+function bukaSurat(){document.getElementById('surat').style.display='block';document.getElementById('awal').style.display='none';document.getElementById('lagu').play().catch(()=>{});} 
+function lanjutPesan(){document.getElementById('pesan').innerHTML='aku sayang kamu hari ini, besok, dan seterusnya. semangat terus yaa cantikkk 😚✨'}
 
-// Buat hati jatuh dan hati tersembur dari kanan kiri yang kemudia tertahan di bawah sampai hati menggunung ke atas
-for (let i = 0; i < 30; i++) {
-    let heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-    heart.style.fontSize = (Math.random() * 10 + 15) + "px";
-    document.body.appendChild(heart);
+let ground=[];
+function createHeart(type){
+ let h=document.createElement('div');
+ h.className='heart';
+ h.innerHTML='❤';
+ h.style.fontSize=(Math.random()*14+18)+'px';
+ if(type==='top'){h.style.left=Math.random()*100+'vw';h.style.animation='fall 4s linear forwards'}
+ if(type==='left'){h.style.animation='sideLeft 5s linear forwards'}
+ if(type==='right'){h.style.animation='sideRight 5s linear forwards'}
+ document.body.appendChild(h);
+ setTimeout(()=>{h.style.position='fixed';h.style.bottom='0';h.style.top='auto';h.style.transform='none';ground.push(h);arrangeGround();},5000);
 }
+function arrangeGround(){ground.forEach((h,i)=>{h.style.left=(i%20)*5+'vw';h.style.bottom=Math.floor(i/20)*18+'px'})}
+setInterval(()=>{createHeart(['top','left','right'][Math.floor(Math.random()*3)])},200);
 </script>
-
 </body>
 </html>

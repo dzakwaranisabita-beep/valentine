@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine adekkk</title>
+
+<!-- font biar ga error -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+h1 { color: #ff4d6d; }
+
+p {
+    color: #555;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover { background: #e60039; }
+
+/* Animasi hati */
+.heart {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh); opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- kalau belum upload foto, sementara pakai placeholder -->
+    <img src="https://picsum.photos/200" alt="Foto">
+
+    <h1 id="judul">Happy Valentine adekk babyy ma babyyy 💗</h1>
+
+    <p id="pesan">
+        huhuhu klo dipikir pikir ini pertama kalinya kita valentine bareng yang real "bareng" yahhhhh,
+        smogaa taun berikut berikutnyaa tiap valentine kitaa bisa rayainnn brsamaa ya adek sayangg.
+        iloveyouuuuu adekkk‼️ abit sangatt amat beryukur kita sudah melalui banyak hal dan sudah di tahap iniiii!
+        kuatt teruss yaa pacar kerenku!!!
+    </p>
+
+    <button onclick="gantiPesan()">Klik Ini 💌</button>
+</div>
+
+<script>
+function gantiPesan() {
+    document.getElementById("pesan").innerHTML = "eh apa ini? 😚✨";
+}
+
+// Buat hati jatuh
+for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    heart.style.fontSize = (Math.random() * 10 + 15) + "px";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>

@@ -34,7 +34,7 @@ button:hover{background:#e60039}
 <p>ADEK JAGA KESEHATAN TERUS YA WAJIB PLS KARNA SEMUA ITU HAK MILIK ABIT HUHUHU adek uda makan yang cukup, 
  istirahat yang cukup, DAN BAHAGIAA belum? kalo belum yuk makan, istirahat DAN BAHAGIAA dulu sebelum buka iniii 
  NANTI PENCET AKU LAGI YAA KALAU SUDAHH HUHUUH ILOVEYOU BABY</p>
-<button onclick="nextSlide(2)">pencet aku adekk</button>
+<button onclick="startMusic();nextSlide(2)">pencet aku adekk</button>
 </div>
 
 <div class="slide" id="s2">
@@ -50,20 +50,25 @@ MAKASII SAYANG UDA SELALU JADI PERTAMA YANG ABIT PIKIRIN TIAP BANGUN TIDUR DAN M
 <div class="slide" id="s3">
 <h1>EH HALO LAGI PACARKU, MILIKKU, CINTAKU, MANISKU, DUNIAKU, HIDUP MATIKU</h1>
 <p>LOVEYOU TODAYY, LOVEYOU TOMORROWWW, LOVEYOU FOREVERR BABYY</p>
-<button onclick="playMusic()">PUK PUK ADEK, PACARKU HIDUP MATIKU DESERVES PUKPUK PELUK 736498348369446892364x 🤍</button>
+<button onclick="endingSlide()">PUK PUK ADEK 🤍</button>
+<div id="endingText" style="display:none;margin-top:20px;font-size:26px;font-weight:600;color:#ff4d6d">BAHAGIA KUAT TERUS YAA ADEKK PACARKU YANG KERENN!!! YOU DID WELL BABYY MA BABYY HUHU #PROUDGIRLFRIEND</div>
+</div>
+
+<div class="slide" id="s4">
+<h1 style="font-size:30px">BAHAGIA KUAT TERUS YAA ADEKK PACARKU YANG KERENN!!! YOU DID WELL BABYY MA BABYY HUHU #PROUDGIRLFRIEND</h1>
 </div>
 
 </div>
 
 <script>
 function nextSlide(n){document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));document.getElementById('s'+n).classList.add('active');}
-const chorusStart=55; // ganti angka ini kalau mau geser bagian lagu
-function playMusic(){let a=document.getElementById('lagu');a.currentTime=chorusStart;a.play().catch(()=>{});showEnding();} 
+function startMusic(){let a=document.getElementById('lagu');a.currentTime=0;a.play().catch(()=>{});} 
+const chorusStart=55;
+function endingSlide(){nextSlide(4);confetti();}
 
 function heart(){let h=document.createElement('div');h.className='heart';h.innerHTML='❤';h.style.left=Math.random()*100+'vw';h.style.fontSize=(Math.random()*18+18)+'px';h.style.animation='fall 2.2s linear forwards';document.body.appendChild(h);setTimeout(()=>h.remove(),2200)}
 setInterval(heart,90);
-function showEnding(){let text=document.createElement('div');text.innerHTML='BAHAGIA KUAT TERUS YAA ADEKK PACARKU YANG KERENN!!! YOU DID WELL BABYY MA BABYY HUHU #PROUDGIRLFRIEND';text.style.position='fixed';text.style.top='50%';text.style.left='50%';text.style.transform='translate(-50%,-50%)';text.style.fontSize='34px';text.style.fontWeight='600';text.style.color='white';text.style.textAlign='center';text.style.padding='20px';text.style.zIndex='999';document.body.appendChild(text);
-for(let i=0;i<200;i++){let c=document.createElement('div');c.innerHTML='🎉';c.style.position='fixed';c.style.left=Math.random()*100+'vw';c.style.top='-10px';c.style.fontSize=(Math.random()*20+15)+'px';c.style.animation='fall '+(Math.random()*2+1)+'s linear forwards';document.body.appendChild(c);setTimeout(()=>c.remove(),3000);} }
+function confetti(){for(let i=0;i<200;i++){let c=document.createElement('div');c.innerHTML='🎉';c.style.position='fixed';c.style.left=Math.random()*100+'vw';c.style.top='-10px';c.style.fontSize=(Math.random()*20+15)+'px';c.style.animation='fall '+(Math.random()*2+1)+'s linear forwards';document.body.appendChild(c);setTimeout(()=>c.remove(),3000);} }
 </script>
 </body>
 </html>
